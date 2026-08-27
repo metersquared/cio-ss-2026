@@ -1,6 +1,7 @@
 #include <objscip/objscip.h>
 #include <objscip/objscipdefplugins.h>
 #include <scip/dialog_default.h>
+#include <scip/scip_solvingstats.h>
 
 #include <boost/program_options.hpp>
 #include <cassert>
@@ -84,4 +85,6 @@ int main(int argc, char** argv) {
                            (solved) ? "solved" : "not solved");
   std::cout << std::format("Time: {}\n", SCIPgetSolvingTime(scip.get()));
   std::cout << std::format("Nodes: {}\n", SCIPgetNTotalNodes(scip.get()));
+  std::cout << std::format("PrimalDualIntegral: {}\n",
+                           SCIPgetPrimalDualIntegral(scip.get()));
 }
