@@ -1,9 +1,9 @@
-SCIP version 10.0.3 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 8.0.3] [GitHash: d409edf9f6]
+SCIP version 10.0.3 [precision: 8 byte] [memory: block] [mode: debug] [LP solver: SoPlex 8.0.3] [GitHash: d409edf]
 Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
 original problem has 105 variables (105 bin, 0 int, 0 cont) and 2 constraints
 SCIP Status        : problem is solved [optimal solution found]
-Total Time         :       0.01
-  solving          :       0.01
+Total Time         :       0.84
+  solving          :       0.84
   presolving       :       0.00 (included in solving)
   reading          :       0.00
   copying          :       0.00 (0 times copied the problem)
@@ -17,28 +17,28 @@ Presolved Problem  :
   Problem name     : t_mknap_9
   Variables        : 105 (105 binary, 0 integer, 0 continuous)
   Implied int vars : 0 (0 binary, 0 integer, 0 continuous)
-  Constraints      : 2 initial, 2 maximal
+  Constraints      : 2 initial, 135 maximal
   Objective        : minimize, 105 non-zeros (abs.min = 70, abs.max = 107200)
   Nonzeros         : 141 constraint, 0 clique table
 Presolvers         :   ExecTime  SetupTime  Calls  FixedVars   AggrVars   ChgTypes  ChgBounds   AddHoles    DelCons    AddCons   ChgSides   ChgCoefs
   linear           :       0.00       0.00      0          0          0          0          0          0          0          0          0          0
-  root node        :          -          -      -         31          -          -         31          -          -          -          -          -
+  root node        :          -          -      -         13          -          -         13          -          -          -          -          -
 Constraints        :     Number  MaxNumber  #Separate #Propagate    #EnfoLP    #EnfoRelax  #EnfoPS    #Check   #ResProp    Cutoffs    DomReds       Cuts    Applied      Conss   Children
-  integral         :          0          0          0          0        434          0          0          1          0          4         43          0          0          0        772
-  linear           :          2          2          0          0          1          0          0          0          0          0          0          0          0          0          0
+  integral         :          0          0          0          0       1778          0          0          1          0          0          0          0          0          0       3548
+  linear           :          2+       135          0          0          4          0          0          0          0          0          0          0          0          0          0
 Constraint Timings :  TotalTime  SetupTime   Separate  Propagate     EnfoLP     EnfoPS     EnfoRelax   Check    ResProp    SB-Prop
   integral         :       0.01       0.00       0.00       0.00       0.01       0.00       0.00       0.00       0.00       0.00
   linear           :       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00
 Propagators        : #Propagate   #ResProp    Cutoffs    DomReds
 Propagator Timings :  TotalTime  SetupTime   Presolve  Propagate    ResProp    SB-Prop
-Conflict Analysis  :       Time      Calls    Success    DomReds  Conflicts   Literals    Reconvs ReconvLits   Dualrays   Nonzeros   LP Iters   (pool size: [--,--])
+Conflict Analysis  :       Time      Calls    Success    DomReds  Conflicts   Literals    Reconvs ReconvLits   Dualrays   Nonzeros   LP Iters   (pool size: [10000,10000])
   propagation      :       0.00          0          0          -          0        0.0          0        0.0          -          -          -
-  infeasible LP    :       0.00          0          0          -          0        0.0          0        0.0          0        0.0          0
+  infeasible LP    :       0.01         68         68          -         68        9.8          0        0.0         68       50.9          0
   bound exceed. LP :       0.00          0          0          -          0        0.0          0        0.0          0        0.0          0
   strong branching :       0.00          0          0          -          0        0.0          0        0.0          -          -          0
   pseudo solution  :       0.00          1          0          -          0        0.0          0        0.0          -          -          -
-  applied globally :       0.00          -          -          0          0        0.0          -          -          0          -          -
-  applied locally  :          -          -          -          0          0        0.0          -          -          0          -          -
+  applied globally :       0.00          -          -          0         65        9.2          -          -         68          -          -
+  applied locally  :          -          -          -          0          3       21.3          -          -          0          -          -
 Gen. Resolution CA :       Time      Calls    Success  Conflicts  LargeCoef  LongConfs    Length
   propagation      :       0.00          0          0          0          0          0       0.0
 Separators         :   ExecTime  SetupTime      Calls  RootCalls    Cutoffs    DomReds  FoundCuts ViaPoolAdd  DirectAdd    Applied ViaPoolApp  DirectApp      Conss
@@ -49,10 +49,10 @@ Cutselectors       :   ExecTime  SetupTime      Calls  RootCalls   Selected     
 Pricers            :   ExecTime  SetupTime      Calls       Vars
   problem variables:       0.00          -          0          0
 Branching Rules    :   ExecTime  SetupTime   BranchLP  BranchExt   BranchPS    Cutoffs    DomReds       Cuts      Conss   Children
-  driebeekpenalties:       0.01       0.00        433          0          0          4         43          0          0        772
-  random           :       0.00       0.00          0          0          0          0          0          0          0          0
+  driebeekpenalties:       0.00       0.00          0          0          0          0          0          0          0          0
+  random           :       0.01       0.00       1774          0          0          0          0          0          0       3548
 Primal Heuristics  :   ExecTime  SetupTime      Calls      Found       Best
-  LP solutions     :       0.00          -          -          1          1
+  LP solutions     :       0.00          -          -          4          4
   relax solutions  :       0.00          -          -          0          0
   pseudo solutions :       0.00          -          -          0          0
   strong branching :       0.00          -          -          0          0
@@ -60,7 +60,7 @@ Primal Heuristics  :   ExecTime  SetupTime      Calls      Found       Best
   other solutions  :          -          -          -          0          -
 LP                 :       Time      Calls Iterations  Iter/call   Iter/sec  Time-0-It Calls-0-It
   primal LP        :       0.00          0          0       0.00          -       0.00          0
-  dual LP          :       0.00        435        476       1.09          -       0.00          0
+  dual LP          :       0.59       2462       3135       1.29    5279.86       0.00         41
   lex dual LP      :       0.00          0          0       0.00          -
   barrier LP       :       0.00          0          0       0.00          -       0.00          0
   resolve instable :       0.00          0          0       0.00          -
@@ -70,40 +70,40 @@ LP                 :       Time      Calls Iterations  Iter/call   Iter/sec  Tim
   conflict analysis:       0.00          0          0       0.00          -
 B&B Tree           :
   number of runs   :          1
-  nodes            :        392 (386 internal, 6 leaves)
-  feasible leaves  :          1
-  infeas. leaves   :          4
-  objective leaves :          1
-  nodes (total)    :        392 (386 internal, 6 leaves)
+  nodes            :       2462 (1774 internal, 688 leaves)
+  feasible leaves  :          4
+  infeas. leaves   :         68
+  objective leaves :        616
+  nodes (total)    :       2462 (1774 internal, 688 leaves)
   nodes left       :          0
-  max depth        :         78
-  max depth (total):         78
-  backtracks       :         25 (6.4%)
+  max depth        :         79
+  max depth (total):         79
+  backtracks       :        287 (11.7%)
   early backtracks :          0 (0.0%)
   nodes exc. ref.  :          0 (0.0%)
   delayed cutoffs  :          0
-  repropagations   :          0 (0 domain reductions, 0 cutoffs)
-  avg switch length:       3.23
-  switching time   :       0.00
+  repropagations   :         63 (0 domain reductions, 0 cutoffs)
+  avg switch length:       4.48
+  switching time   :       0.05
 Root Node          :
   First LP value   : +6.28773683076923e+05
-  First LP Iters   :          3 (36585.37 Iter/sec)
+  First LP Iters   :          3 (3448.28 Iter/sec)
   First LP Time    :       0.00
-  Final Dual Bound : +6.28769797202797e+05
+  Final Dual Bound : +6.28773683076923e+05
   Final Root Iters :          3
-  Root LP Estimate : +6.27564625778432e+05
+  Root LP Estimate : +6.28058453124641e+05
 Solution           :
-  Solutions found  :          1 (1 improvements)
-  First Solution   : +6.24319000000000e+05   (in run 1, after 387 nodes, 0.01 seconds, depth 78, found by <relaxation>)
-  Gap First Sol.   :       0.04 %
-  Gap Last Sol.    :       0.04 %
-  Primal Bound     : +6.24319000000000e+05   (in run 1, after 387 nodes, 0.01 seconds, depth 78, found by <relaxation>)
+  Solutions found  :          4 (4 improvements)
+  First Solution   : +5.96784000000000e+05   (in run 1, after 893 nodes, 0.32 seconds, depth 36, found by <relaxation>)
+  Gap First Sol.   :       5.02 %
+  Gap Last Sol.    :       0.01 %
+  Primal Bound     : +6.24319000000000e+05   (in run 1, after 2447 nodes, 0.83 seconds, depth 79, found by <relaxation>)
   Dual Bound       : +6.24319000000000e+05
   Gap              :       0.00 %
 Integrals          :      Total       Avg%
-  primal-dual      :       1.21      96.55
+  primal-dual      :      32.66      38.74
   primal-ref       :          -          - (not evaluated)
   dual-ref         :          -          - (not evaluated)
 Solution Status: solved
-Time: 0.012485999999999999
-Nodes: 392
+Time: 0.843032
+Nodes: 2462

@@ -1,9 +1,9 @@
-SCIP version 10.0.3 [precision: 8 byte] [memory: block] [mode: optimized] [LP solver: SoPlex 8.0.3] [GitHash: d409edf9f6]
+SCIP version 10.0.3 [precision: 8 byte] [memory: block] [mode: debug] [LP solver: SoPlex 8.0.3] [GitHash: d409edf]
 Copyright (c) 2002-2026 Zuse Institute Berlin (ZIB)
 original problem has 70 variables (70 bin, 0 int, 0 cont) and 5 constraints
 SCIP Status        : problem is solved [optimal solution found]
-Total Time         :       0.01
-  solving          :       0.01
+Total Time         :       0.16
+  solving          :       0.16
   presolving       :       0.00 (included in solving)
   reading          :       0.00
   copying          :       0.00 (0 times copied the problem)
@@ -24,7 +24,7 @@ Presolvers         :   ExecTime  SetupTime  Calls  FixedVars   AggrVars   ChgTyp
   linear           :       0.00       0.00      0          0          0          0          0          0          0          0          0          0
   root node        :          -          -      -          5          -          -          5          -          -          -          -          -
 Constraints        :     Number  MaxNumber  #Separate #Propagate    #EnfoLP    #EnfoRelax  #EnfoPS    #Check   #ResProp    Cutoffs    DomReds       Cuts    Applied      Conss   Children
-  integral         :          0          0          0          0        220          0          0          1          0          0         45          0          0          0        346
+  integral         :          0          0          0          0        314          0          0          1          0          0          0          0          0          0        624
   linear           :          5          5          0          0          2          0          0          0          0          0          0          0          0          0          0
 Constraint Timings :  TotalTime  SetupTime   Separate  Propagate     EnfoLP     EnfoPS     EnfoRelax   Check    ResProp    SB-Prop
   integral         :       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00       0.00
@@ -49,8 +49,8 @@ Cutselectors       :   ExecTime  SetupTime      Calls  RootCalls   Selected     
 Pricers            :   ExecTime  SetupTime      Calls       Vars
   problem variables:       0.00          -          0          0
 Branching Rules    :   ExecTime  SetupTime   BranchLP  BranchExt   BranchPS    Cutoffs    DomReds       Cuts      Conss   Children
-  driebeekpenalties:       0.00       0.00        218          0          0          0         45          0          0        346
-  random           :       0.00       0.00          0          0          0          0          0          0          0          0
+  driebeekpenalties:       0.00       0.00          0          0          0          0          0          0          0          0
+  random           :       0.00       0.00        312          0          0          0          0          0          0        624
 Primal Heuristics  :   ExecTime  SetupTime      Calls      Found       Best
   LP solutions     :       0.00          -          -          2          2
   relax solutions  :       0.00          -          -          0          0
@@ -60,7 +60,7 @@ Primal Heuristics  :   ExecTime  SetupTime      Calls      Found       Best
   other solutions  :          -          -          -          0          -
 LP                 :       Time      Calls Iterations  Iter/call   Iter/sec  Time-0-It Calls-0-It
   primal LP        :       0.00          0          0       0.00          -       0.00          0
-  dual LP          :       0.00        224        252       1.12          -       0.00          0
+  dual LP          :       0.11        448        540       1.21    4949.54       0.00          0
   lex dual LP      :       0.00          0          0       0.00          -
   barrier LP       :       0.00          0          0       0.00          -       0.00          0
   resolve instable :       0.00          0          0       0.00          -
@@ -70,40 +70,40 @@ LP                 :       Time      Calls Iterations  Iter/call   Iter/sec  Tim
   conflict analysis:       0.00          0          0       0.00          -
 B&B Tree           :
   number of runs   :          1
-  nodes            :        179 (173 internal, 6 leaves)
+  nodes            :        449 (312 internal, 137 leaves)
   feasible leaves  :          2
-  infeas. leaves   :          0
-  objective leaves :          4
-  nodes (total)    :        179 (173 internal, 6 leaves)
+  infeas. leaves   :          1
+  objective leaves :        134
+  nodes (total)    :        449 (312 internal, 137 leaves)
   nodes left       :          0
-  max depth        :         35
-  max depth (total):         35
-  backtracks       :         16 (8.9%)
+  max depth        :         49
+  max depth (total):         49
+  backtracks       :        115 (25.6%)
   early backtracks :          0 (0.0%)
   nodes exc. ref.  :          0 (0.0%)
   delayed cutoffs  :          0
   repropagations   :          0 (0 domain reductions, 0 cutoffs)
-  avg switch length:       2.78
-  switching time   :       0.00
+  avg switch length:       5.60
+  switching time   :       0.01
 Root Node          :
   First LP value   : +7.75697590361446e+03
-  First LP Iters   :          3 (34482.76 Iter/sec)
+  First LP Iters   :          3 (2770.08 Iter/sec)
   First LP Time    :       0.00
-  Final Dual Bound : +7.75520430107527e+03
+  Final Dual Bound : +7.75697590361446e+03
   Final Root Iters :          3
-  Root LP Estimate : +7.74917612101064e+03
+  Root LP Estimate : +7.74846368524096e+03
 Solution           :
   Solutions found  :          2 (2 improvements)
-  First Solution   : +7.47600000000000e+03   (in run 1, after 93 nodes, 0.00 seconds, depth 24, found by <relaxation>)
-  Gap First Sol.   :       3.34 %
-  Gap Last Sol.    :       0.21 %
-  Primal Bound     : +7.69800000000000e+03   (in run 1, after 175 nodes, 0.01 seconds, depth 28, found by <relaxation>)
+  First Solution   : +6.84600000000000e+03   (in run 1, after 102 nodes, 0.05 seconds, depth 12, found by <relaxation>)
+  Gap First Sol.   :      13.14 %
+  Gap Last Sol.    :       0.53 %
+  Primal Bound     : +7.69800000000000e+03   (in run 1, after 209 nodes, 0.08 seconds, depth 4, found by <relaxation>)
   Dual Bound       : +7.69800000000000e+03
   Gap              :       0.00 %
 Integrals          :      Total       Avg%
-  primal-dual      :       0.29      49.95
+  primal-dual      :       5.14      32.18
   primal-ref       :          -          - (not evaluated)
   dual-ref         :          -          - (not evaluated)
 Solution Status: solved
-Time: 0.005728
-Nodes: 179
+Time: 0.159685
+Nodes: 449

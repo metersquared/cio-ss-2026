@@ -257,6 +257,41 @@ SCIP_DECL_BRANCHEXECLP(DriebeekPenalties::scip_execlp) {
     auto least_down_penalty = SCIPinfinity(scip);
 
     // TODO: Compute least_up_penalty and least_down_penalty.
+    auto down_gap = sol - std::floor(sol);
+    auto up_gap   = std::ceil(sol) - sol;
+
+    std::vector<SCIP_Real> movement_penalty_down;
+    std::vector<SCIP_Real> movement_penalty_up;
+
+    movement_penalty_down.reserve(lp_variables.size());
+    movement_penalty_up.reserve(lp_variables.size());
+
+    for(int i=0; i<num_cols; ++i){
+      if(std::find(basic_indices.begin(), basic_indices.end(), i)!=basic_indices.end()){
+        continue;
+      }
+      auto down_delta=down_gap/tableau_coeff[i];
+      auto up_delta=-up_gap/tableau_coeff[i];
+
+      if(lower_bounds[i]==upper_bounds[i])
+      {
+        movement_penalty_down.push_back(SCIPinfinity(scip));
+        movement_penalty_up.push_back(SCIPinfinity(scip));
+      }
+      else if(down_delta>0 && lp_solution[i]==upper_bounds[i]){
+        movement_penalty_down.push_back(SCIPinfinity(scip));
+      }
+      else if(up_delta<0 && lp_solution[i]==lower_bounds[i]){
+        movement_penalty_up.push_back(SCIPinfinity(scip));
+      }
+      else{
+        movement_penalty_down.push_back(reduced_costs[i]*down_delta);
+        movement_penalty_up.push_back(reduced_costs[i]*up_delta);
+      }
+    }
+
+    least_up_penalty = *std::min_element(movement_penalty_up.begin(), movement_penalty_up.end());
+    least_down_penalty = *std::min_element(movement_penalty_down.begin(), movement_penalty_down.end());
 
     /*
     * Our driebeek penalty give lowerbounds on the LP objective if we branch up
